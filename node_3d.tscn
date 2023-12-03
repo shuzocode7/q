@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://uqdqna5lpts5"]
+[gd_scene load_steps=7 format=3 uid="uid://uqdqna5lpts5"]
 
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_4fuoa"]
 [ext_resource type="PackedScene" uid="uid://duagvf3yaqqgt" path="res://untitled.glb" id="1_w6tit"]
+[ext_resource type="PackedScene" uid="uid://c0p8jpeocdjm2" path="res://angar.tscn" id="3_je0hx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_535yv"]
 size = Vector3(20, 0.1, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c5r8m"]
-size = Vector3(20, 0.1, 20)
+size = Vector3(19.9904, 0.1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ls0wm"]
+size = Vector3(2.20381, 2.12759, 2.69924)
 
 [node name="Node3D" type="Node3D"]
 
@@ -21,6 +26,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91142e-05, 0.164531, -0.002
 shape = SubResource("BoxShape3D_c5r8m")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0701904, -0.16001, 0.0266514)
+script = ExtResource("1_4fuoa")
 
 [node name="untitled" parent="CharacterBody3D" instance=ExtResource("1_w6tit")]
-transform = Transform3D(0.429486, 0, 0, 0, 0.429486, 0, 0, 0, 0.429486, -3.10298, 3.72681, 3.0408)
+transform = Transform3D(0.212802, 0.00209441, 4.16042e-05, -0.00209482, 0.21276, 0.00422636, 0, -0.00422657, 0.21277, -7.50811, 1.56598, 6.1705)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.37392, 1.57275, 6.09785)
+shape = SubResource("BoxShape3D_ls0wm")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40939, 2.63763, 10.2178)
+fov = 79.9533
+
+[node name="Node3D" parent="." instance=ExtResource("3_je0hx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.70295, 0.499653, -3.4348)
